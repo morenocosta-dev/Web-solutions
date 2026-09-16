@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Entre em contacto com a Web Solutions para solicitar um website ou serviço de desenvolvimento web em Angola.">
+    <meta name="keywords" content="contacto Web Solutions, desenvolvimento web Angola, criação de sites, websites">
+    <meta name="author" content="Web Solutions">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#05080d">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Contacto — Web Solutions">
+    <meta property="og:description" content="Solicite informações e peça um orçamento para o seu projeto web.">
+    <meta property="og:locale" content="pt_AO">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Contacto — Web Solutions</title>
+</head>
+<body>
+     <header>
+        <nav class="navbar">
+            <div class="logo">
+             <h1>Web Solutions</h1>
+            </div>
+
+            <div class="menu">
+                <a href="index.html">Início</a>
+                <a href="index.html#sobre">Sobre</a>
+                <a href="index.html#servicos">Serviços</a>
+                <a id="botao" href="contacto.html">Contacto</a>
+            </div>
+
+            <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="contact-page">
+    <div class="form-container">
+
+<div class="title">
+<div class="number">1</div>
+<h2>Detalhes do pedido</h2>
+</div>
+
+
+<div class="form-grid">
+
+<div class="input-box">
+<label>NOME COMPLETO *</label>
+<input id="nome" type="text" placeholder="O seu nome">
+</div>
+
+
+<div class="input-box">
+<label>WHATSAPP *</label>
+<input id="telefone" type="text" placeholder="+244 9XX XXX XXX">
+</div>
+
+
+<div class="input-box">
+<label>CIDADE / BAIRRO</label>
+<input id="cidade" type="text" placeholder="Luanda, Talatona...">
+</div>
+
+
+<div class="input-box">
+<label>Serviço</label>
+
+<select id="servico">
+<option>Criação de Web sites</option>
+<option>Criação de lojas Virtuais</option>
+<option>Preciso expandir o meu negócio</option>
+<option>Segurança e Suporte</option>
+<option>Sites Responsivos</option>
+</select>
+</div>
+
+<div class="input-box">
+<label>O que deseja?</label>
+<input id="pedido" type="text" placeholder="Ex: Web site, Sites responsivos?...">
+</div>
+
+
+<div class="input-box">
+<label>Número de pessoas</label>
+<input id="pessoas" type="number" placeholder="Ex: 2">
+</div>
+
+
+<div class="input-box full">
+<label>OBSERVAÇÕES</label>
+<textarea id="obs" placeholder="Alguma preferência especial?"></textarea>
+</div>
+
+
+</div>
+
+
+<div class="title" style="margin-top:40px;">
+<div class="number">2</div>
+<h2>Método de pagamento</h2>
+</div>
+
+
+<div class="payment-box">
+<strong>WhatsApp</strong>
+<p>Pedido enviado por mensagem</p>
+</div>
+
+
+<button onclick="enviarWhatsApp()">
+Enviar pedido pelo WhatsApp
+</button>
+</div>
+    </main>
+
+<footer class="footer">
+    <div class="footer-container">
+
+        <div class="footer-col">
+            <h3>Web Solutions</h3>
+            <p>Criado em Angola com dedicação.</p>
+
+            <div class="social">
+                <a href="#">Ⓕ</a>
+                <a href="#">♪</a>
+                <a href="#">☏</a>
+            </div>
+
+            <small>@websolutions</small>
+        </div>
+
+
+        <div class="footer-col">
+            <h3>Contacto</h3>
+            <p>+244 944 686 993</p>
+            <p>+244 947 839 215</p>
+            <p>websolutions@gmail.com</p>
+        </div>
+
+
+        <div class="footer-col">
+            <h3>Horário</h3>
+            <p>Domingo a Domingo</p>
+            <p>8h00 — 21h00</p>
+        </div>
+
+
+        <div class="footer-col">
+            <h3>Navegar</h3>
+            <a href="index.html">Início</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#">Sobre</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+        © 2026 Web Solutions — Qualidade que se sente.
+    </div>
+    </footer>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.querySelector(".menu-toggle");
+    const menu = document.querySelector(".menu");
+
+    if (toggle && menu) {
+        toggle.addEventListener("click", function () {
+            const aberto = menu.classList.toggle("ativo");
+            toggle.classList.toggle("ativo", aberto);
+            toggle.setAttribute("aria-expanded", aberto ? "true" : "false");
+            toggle.setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu");
+        });
+
+        menu.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                menu.classList.remove("ativo");
+                toggle.classList.remove("ativo");
+                toggle.setAttribute("aria-expanded", "false");
+                toggle.setAttribute("aria-label", "Abrir menu");
+            });
+        });
+    }
+});
+
+function enviarWhatsApp() {
+    const nome = document.getElementById("nome")?.value.trim();
+    const telefone = document.getElementById("telefone")?.value.trim();
+    const cidade = document.getElementById("cidade")?.value.trim();
+    const servico = document.getElementById("servico")?.value;
+    const pedido = document.getElementById("pedido")?.value.trim();
+    const pessoas = document.getElementById("pessoas")?.value.trim();
+    const obs = document.getElementById("obs")?.value.trim();
+
+    if (!nome || !telefone) {
+        alert("Preencha o seu nome e o WhatsApp antes de enviar.");
+        return;
+    }
+
+    const mensagem =
+        "Olá, Web Solutions!%0A%0A" +
+        "*Detalhes do pedido*%0A" +
+        "Nome: " + encodeURIComponent(nome) + "%0A" +
+        "WhatsApp: " + encodeURIComponent(telefone) + "%0A" +
+        "Cidade/Bairro: " + encodeURIComponent(cidade || "Não informado") + "%0A" +
+        "Serviço: " + encodeURIComponent(servico || "Não informado") + "%0A" +
+        "O que deseja: " + encodeURIComponent(pedido || "Não informado") + "%0A" +
+        "Número de pessoas: " + encodeURIComponent(pessoas || "Não informado") + "%0A" +
+        "Observações: " + encodeURIComponent(obs || "Nenhuma");
+
+    window.open("https://wa.me/244944686993?text=" + mensagem, "_blank");
+}
+</script>
+
+</body>
+</html>
